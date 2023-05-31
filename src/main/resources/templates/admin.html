@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Quản lý sản phẩm</title>
-    <link rel="stylesheet" href="../static/CSS/admin.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
     <div class="header">
@@ -13,105 +13,30 @@
         <div class="product-list">
             <h2>Danh sách sản phẩm</h2>
             <table>
-                <tr>
-                    <th>Tên sản phẩm</th>
-                    <th>Giá sản phẩm</th>
-                    <th>Mô tả</th>
-                    <th>Hình ảnh</th>
-                    <th>Thao tác</th>
-                </tr>
-                <tr>
-                    <td>Laptop Dell Inspiron 15 3593 i5</td>
-                    <td>14.490.000đ</td>
-                    <td>Laptop Dell Inspiron 15 3593 i5</td>
-                    <td><img src="../static/image/Dell Inspiron3593.jpg.webp"></td>
-                    <td><button>Sửa</button><button>Xóa</button></td>
-                </tr>
-                <tr>
-                    <td>Laptop HP Pavilion Gaming 15-ec1020AX</td>
-                    <td>27.490.000đ</td>
-                    <td>Laptop HP Pavilion Gaming 15-ec1020AX</td>
-                    <td><img src="../static/image/Laptop HP Pavilion Gaming 15-.jpg"></td>
-                    <td><button>Sửa</button><button>Xóa</button></td>
-                </tr>
-                <tr>
-                    <td>Laptop Asus VivoBook X515EA-BQ523T i5</td>
-                    <td>13.290.000đ</td>
-                    <td>Laptop Asus VivoBook X515EA-BQ523T i5</td>
-                    <td><img src="../static/image/Laptop Asus VivoBook X515EA-BQ523T i5.jpg"></td>
-                    <td><button>Sửa</button><button>Xóa</button></td>
-                </tr>
-            </table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá sản phẩm</th>
+                        <th>Mô tả</th>
+                        <th>Hình ảnh</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.id}"></td>
+                        <td th:text="${product.productName}"></td>
+                        <td th:text="${product.price}"></td>
+                        <td th:text="${product.description}"></td>
+                        <td><img th:src="${product.image}" alt="Hình ảnh"></td>
+                        <td>
+                            <button th:action="edit">Sửa</button>
+                            <button>Xóa</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>            
         </div>
-        <div class="product-form">
-            <h2>Thêm sản phẩm</h2>
-            <form>
-                <label for="name">Tên sản phẩm:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="price">Giá sản phẩm:</label>
-                <input type="text" id="price" name="price" required>
-                <label for="description">Mô tả:</label>
-                <textarea id="description" name="description"></textarea>
-                <label for="image">Hình ảnh:</label>
-                <input type="file" id="image" name="image">
-                <button type="submit">Thêm</button>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2>Danh sách sản phẩm</h2>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Tên sản phẩm</th>
-                                        <th>Thương hiệu</th>
-                                        <th>Giá bán</th>
-                                        <th>Số lượng</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Laptop Dell Inspiron 15 3000</td>
-                                        <td>Dell</td>
-                                        <td>15,990,000 VNĐ</td>
-                                        <td>50</td>
-                                        <td>
-                                            <a href="#">Sửa</a> | 
-                                            <a href="#">Xóa</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Laptop ASUS VivoBook S14 S430UA-EB017T</td>
-                                        <td>ASUS</td>
-                                        <td>16,990,000 VNĐ</td>
-                                        <td>20</td>
-                                        <td>
-                                            <a href="#">Sửa</a> | 
-                                            <a href="#">Xóa</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Laptop HP ProBook 440 G7</td>
-                                        <td>HP</td>
-                                        <td>18,990,000 VNĐ</td>
-                                        <td>30</td>
-                                        <td>
-                                            <a href="#">Sửa</a> | 
-                                            <a href="#">Xóa</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            
+    </div>
+</body>

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import LaptopWebsite.Nhom14.Model.Product;
 import LaptopWebsite.Nhom14.Service.ProductService;
 
-@RequestMapping("/products")
+@RequestMapping("/product")
 @Controller
 public class ProductController {
     @Autowired
@@ -24,7 +24,7 @@ public class ProductController {
     private String showAllProducts(Model model){
         List<Product> products = productService.GetAll();
         model.addAttribute("products",products);
-        return "product/list";
+        return "Product";
     }
 
     @GetMapping("/add")

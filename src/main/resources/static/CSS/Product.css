@@ -38,11 +38,11 @@ body {
   .search-form {
     display: inline-block;
     margin-left: 20px;
-}
-.search-form input[type="text"]{
-    width: 600px;
-    height: 30px;
-}
+  }
+  .search-form input[type="text"]{
+      width: 600px;
+      height: 30px;
+  }
   main {
     max-width: 800px;
     margin: 0 auto;
@@ -95,12 +95,11 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
   }
   .product-row{
     display: flex;
-  flex-basis: 50%;
-  justify-content: space-between;
+    flex-basis: 50%;
+    justify-content: space-between;
   }
   
   footer {
@@ -110,4 +109,6 @@ body {
       padding: 20px;
       height: 100%;
   }
+
+
   
