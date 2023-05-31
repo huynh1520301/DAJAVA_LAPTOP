@@ -45,7 +45,7 @@
         </div>
         <div class="product-form">
             <h2>Thêm sản phẩm</h2>
-            <form>
+            <form th:action="@{/product/add}" th:object="${product}" method="post">
                 <label for="name">Tên sản phẩm:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="price">Giá sản phẩm:</label>
