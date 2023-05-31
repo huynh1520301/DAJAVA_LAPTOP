@@ -46,15 +46,26 @@
         <div class="product-form">
             <h2>Thêm sản phẩm</h2>
             <form th:action="@{/product/add}" th:object="${product}" method="post">
-                <label for="name">Tên sản phẩm:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="price">Giá sản phẩm:</label>
-                <input type="text" id="price" name="price" required>
-                <label for="description">Mô tả:</label>
-                <textarea id="description" name="description"></textarea>
-                <label for="image">Hình ảnh:</label>
-                <input type="file" id="image" name="image">
-                <button type="submit">Thêm</button>
+                <div class="col-6mb-3">
+                    <label class="form-label" for="name">Tên sản phẩm:</label>
+                    <input class="form-control" th:field="*{productName}" type="text" id="name" name="productName" required>
+                </div>
+                <div class="col-6mb-3">
+
+                </div>
+                <div class="col-6mb-3">
+                    <label class="form-label" for="price">Giá sản phẩm:</label>
+                    <input class="form-control" type="text" th:field="*{price}" id="price" name="price" required>
+                </div>
+                <div class="col-6mb-3">
+                    <label class="form-label" for="description">Mô tả:</label>
+                    <textarea class="form-control" th:field="*{description}" id="description" name="description"></textarea>
+                </div>
+                <div class="col-6mb-3">
+                    <label class="form-label" for="image">Hình ảnh:</label>
+                    <input class="form-control" th:field="*{image}" type="file" id="image" name="image">
+                </div>
+                <button type="submit" class="btn btn-primary">Thêm</button>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -114,4 +125,7 @@
                         </div>
                     </div>
                 </div>
-            
+            </form>
+        </div>
+    </div>
+</body>
