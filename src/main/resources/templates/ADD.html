@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Thêm sản phẩm mới</title>
+</head>
+<body>
+	
+    <link rel="stylesheet" type="text/css" href="../static/CSS/ADD.css">
+	<form action="add_product.php" method="post">
+        <h2>Thêm sản phẩm mới</h2>
+		<label for="product_name">Tên sản phẩm:</label>
+		<input type="text" id="product_name" name="product_name"><br><br>
+
+		<label for="description">Mô tả:</label>
+		<textarea id="description" name="description"></textarea><br><br>
+
+		<label for="price">Giá:</label>
+		<input type="number" id="price" name="price"><br><br>
+
+		<label for="image">Hình ảnh:</label>
+		<input type="file" id="image" name="image"><br><br>
+
+		<input type="submit" value="Thêm sản phẩm">
+        <p>Quay lại trang admin <a href="./admin.html">Nó đây này !!</a></p>
+	</form>
+</body>
+</html>
