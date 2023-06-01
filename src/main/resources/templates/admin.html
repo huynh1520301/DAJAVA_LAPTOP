@@ -32,7 +32,9 @@
                         <td><img th:src="${product.image}" alt="Hình ảnh"></td>
                         <td>
                             <button th:action="edit">Sửa</button>
-                            <button>Xóa</button>
+                            <form th:action="@{'/admin/delete/' + ${product.id}}" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
+                                <button type="submit">Xóa</button>
+                            </form>                                                                                                                                                                 
                         </td>
                     </tr>
                 </tbody>
