@@ -37,4 +37,5 @@ public class ProductController {
     public String addProduct(@ModelAttribute("product") Product product){
         return "redirect:/products";
     }
+    
 }

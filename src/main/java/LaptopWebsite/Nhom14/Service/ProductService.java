@@ -15,7 +15,7 @@ public class ProductService {
 
     public List<Product> GetAll(){return productRepository.findAll();}
 
-    public Product geProductById(Integer id){return productRepository.findById(id).orElse(null);}
+    public Product getProductById(Integer id){return productRepository.findById(id).orElse(null);}
 
     //Service them moi product
     public void addProduct(Product product){productRepository.save(product);}
