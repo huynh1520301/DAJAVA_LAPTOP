@@ -15,7 +15,7 @@ public class ProductService {
 
     public List<Product> GetAll(){return productRepository.findAll();}
 
-    public Product geProductById(Integer id){return productRepository.findById(id).orElse(null);}
+    public Product getProductById(Integer id){return productRepository.findById(id).orElse(null);}
 
     //Service them moi product
     public void addProduct(Product product){productRepository.save(product);}
@@ -25,4 +25,9 @@ public class ProductService {
 
     //Service delete product
     public void deleteProduct(Integer id){productRepository.deleteById(id);}
+
+    //Service search product
+    public List<Product> searchProducts(String keyword) {
+        return productRepository.searchProducts(keyword);
+    }
 }

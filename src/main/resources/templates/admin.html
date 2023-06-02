@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Quản lý sản phẩm</title>
-    <link rel="stylesheet" href="/CSS/admin.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
     <div class="header">
@@ -12,31 +12,40 @@
     <div class="content">
         <div class="product-list">
             <h2>Danh sách sản phẩm</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Giá sản phẩm</th>
-                        <th>Mô tả</th>
-                        <th>Hình ảnh</th>
-                        <th>Thao tác</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="product : ${products}">
-                        <td th:text="${product.id}"></td>
-                        <td th:text="${product.productName}"></td>
-                        <td th:text="${product.price}"></td>
-                        <td th:text="${product.description}"></td>
-                        <td><img th:src="${product.image}" alt="Hình ảnh"></td>
-                        <td>
-                            <button th:action="edit">Sửa</button>
-                            <button>Xóa</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>            
+            <form th:action="@{/admin/add}" method="get" style="position: relative; margin: 0 0 30px 88%;">
+                <button type="submit">Thêm sản phẩm</button>
+            </form>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá sản phẩm</th>
+                            <th>Mô tả</th>
+                            <th>Hình ảnh</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="product : ${products}">
+                            <td th:text="${product.id}"></td>
+                            <td th:text="${product.productName}"></td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.description}"></td>
+                            <td><img th:src="${product.image}" alt="Hình ảnh"></td>
+                            <td>
+                                <form th:action="@{'/admin/edit/' + ${product.id}}" method="post">
+                                    <button type="submit">Sửa</button>
+                                </form>
+                                <form th:action="@{'/admin/delete/' + ${product.id}}" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
+                                    <button type="submit">Xóa</button>
+                                </form>                                                                                                                                                                 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>  
+            </div>               
         </div>
     </div>
 </body>
