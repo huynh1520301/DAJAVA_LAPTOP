@@ -26,17 +26,19 @@
             <li><a href="#">Liên hệ</a></li>
           </ul>
         </nav>
-        <form class="search-form" id="searchForm" action="/search" method="get">
+        <form class="search-form" id="searchForm" action="#">
           <input type="text" name="search" placeholder="Tìm kiếm...">
-          <button type="submit"><i class="ti-search"></i></button>
-      </form>      
+          <datalist>
+            <option th:value="${product.productName}"></option>
+          </datalist>
+        </form>      
       <div id="searchResults"></div>
          <div class="account">
         <a href="/login">Đăng nhập</a>
         <a href="/register">Đăng ký</a>
       </div>
         <div class="cart">
-          <a href="./Cart.html"><i class="ti-shopping-cart"></i></a>
+          <a th:href="/cart"><i class="ti-shopping-cart"></i></a>
         </div>
       </header>
       <!-- Banner section -->
@@ -95,48 +97,3 @@
   </footer>
 </body>
 </html>
-<script>
-  document.getElementById("searchForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent form submission
-
-      // Get the search query from the input field
-      var query = document.getElementsByName("search")[0].value;
-
-      // Call the function to perform the search
-      performSearch(query);
-  });
-
-  function performSearch(query) {
-      // Perform an AJAX request to retrieve the search results
-      // Adjust the URL and request parameters according to your backend API
-
-      // Example using jQuery AJAX
-      $.ajax({
-          url: "/search",
-          method: "GET",
-          data: { query: query },
-          success: function(response) {
-              // Handle the successful response
-              displaySearchResults(response);
-          },
-          error: function(error) {
-              // Handle the error
-              console.log(error);
-          }
-      });
-  }
-
-  function displaySearchResults(results) {
-      var searchResultsDiv = document.getElementById("searchResults");
-
-      // Clear previous search results
-      searchResultsDiv.innerHTML = "";
-
-      // Create and append the search result elements
-      results.forEach(function(result) {
-          var resultItem = document.createElement("div");
-          resultItem.textContent = result.productName;
-          searchResultsDiv.appendChild(resultItem);
-      });
-  }
-</script>
