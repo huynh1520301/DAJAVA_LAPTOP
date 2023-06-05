@@ -18,8 +18,4 @@ public class HomeController {
 
     @RequestMapping("/cart")
     public String cart(){return "Cart";}
-
-    // @Autowired
-    // @RequestMapping("/login")
-    // public String login(){return ""}
 }

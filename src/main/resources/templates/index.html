@@ -28,9 +28,6 @@
         </nav>
         <form class="search-form" id="searchForm" action="#">
           <input type="text" name="search" placeholder="Tìm kiếm...">
-          <datalist>
-            <option th:value="${product.productName}"></option>
-          </datalist>
         </form>      
       <div id="searchResults"></div>
          <div class="account">
@@ -38,7 +35,7 @@
         <a href="/register">Đăng ký</a>
       </div>
         <div class="cart">
-          <a th:href="/cart"><i class="ti-shopping-cart"></i></a>
+          <a href="/cart"><i class="ti-shopping-cart"></i></a>
         </div>
       </header>
       <!-- Banner section -->
