@@ -25,9 +25,4 @@ public class ProductService {
 
     //Service delete product
     public void deleteProduct(Integer id){productRepository.deleteById(id);}
-
-    //Service search product
-    public List<Product> searchProducts(String keyword) {
-        return productRepository.searchProducts(keyword);
-    }
 }
