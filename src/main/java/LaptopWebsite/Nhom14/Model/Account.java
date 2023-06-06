@@ -45,6 +45,11 @@ public class Account {
     @Size(max = 50, message = "Your name must less than 50 characters")
     private String name;
 
+    @Column(name = "phone", length = 12, nullable = false)
+    @NotBlank(message = "Your phone number must required")
+    @Size(max = 12, message = "Your name must less than 12 characters")
+    private String phone;
+
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
 }
