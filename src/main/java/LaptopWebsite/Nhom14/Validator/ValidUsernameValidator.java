@@ -4,17 +4,17 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import LaptopWebsite.Nhom14.Repository.AccountRepository;
+import LaptopWebsite.Nhom14.Repository.UserRepository;
 import LaptopWebsite.Nhom14.Validator.Annotation.ValidUsername;
 
 public class ValidUsernameValidator implements ConstraintValidator<ValidUsername, String> {
     @Autowired
-    private AccountRepository accountRepository;
+    private UserRepository userRepository;
 
     @Override
     public boolean isValid(String username, ConstraintValidatorContext context){
-        if(accountRepository == null)
+        if(userRepository == null)
             return true;
-        return accountRepository.findByUsername(username) == null;
+        return userRepository.findByUsername(username) == null;
     }
 }

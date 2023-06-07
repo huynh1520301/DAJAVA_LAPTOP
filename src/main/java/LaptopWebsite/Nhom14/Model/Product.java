@@ -1,5 +1,6 @@
 package LaptopWebsite.Nhom14.Model;
 
+
 import LaptopWebsite.Nhom14.Validator.Annotation.ValidUserID;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +33,7 @@ public class Product {
     private String image;
 
     @ManyToOne
-    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     @ValidUserID
-    private Account account;
+    private User user;
 }
