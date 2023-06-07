@@ -1,15 +1,16 @@
 package LaptopWebsite.Nhom14.Validator;
 
-import LaptopWebsite.Nhom14.Model.Account;
+
+import LaptopWebsite.Nhom14.Model.User;
 import LaptopWebsite.Nhom14.Validator.Annotation.ValidUserID;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class ValidUserIDValidator implements ConstraintValidator<ValidUserID, Account> {
+public class ValidUserIDValidator implements ConstraintValidator<ValidUserID, User> {
     @Override
-    public boolean isValid(Account account, ConstraintValidatorContext context){
-        if(account == null)
+    public boolean isValid(User user, ConstraintValidatorContext context){
+        if(user == null)
             return true;
-        return account.getId() != null;
+        return user.getId() != null;
     }
 }

@@ -19,8 +19,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Account")
-public class Account {
+@Table(name = "user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -45,6 +45,11 @@ public class Account {
     @Size(max = 50, message = "Your name must less than 50 characters")
     private String name;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    @Column(name = "phone", length = 12, nullable = false)
+    @NotBlank(message = "Your phone number must required")
+    @Size(max = 12, message = "Your phone must less than 12 characters")
+    private String phone;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
 }

@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="https://www.thymeleaf.org">
 <head>
 	<title>Trang đăng ký</title>
 	<link rel="stylesheet" type="text/css" href="/css/Account.css">
 </head>
 <body>
-	<form>
+	<form th:action="@{/register}" th:object="${user}" method="post" >
 		<h1>Đăng ký</h1>
-		<label for="username">Tài khoản:</label>
-		<input type="text" id="username" name="username">
+		<label for="username">Tên tài khoản:</label>
+		<input type="text" required id="username" name="username">
+		<span class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+		<label for="username">Họ và tên:</label>
+		<input type="text" required id="name" name="name">
+		<span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
         <label for="email">Email:</label>
-		<input type="email" id="email" name="email">
+		<input type="email" required id="email" name="email">
+		<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 		<label for="phone">Số điện thoại:</label>
-		<input type="tel" id="phone" name="phone">
+		<input type="tel" required id="phone" name="phone">
+		<span class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
 		<label for="password">Mật khẩu:</label>
-		<input type="password" id="password" name="password">
+		<input type="password" required id="password" name="password">
+		<span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
 		<button type="submit">Đăng ký</button>
+		<p><a href="/">Quay về trang chủ</a></p>
 	</form>
 </body>
 </html>
