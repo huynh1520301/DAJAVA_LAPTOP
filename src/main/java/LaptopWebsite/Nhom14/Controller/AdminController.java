@@ -12,13 +12,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import LaptopWebsite.Nhom14.Model.Product;
+import LaptopWebsite.Nhom14.Model.User;
 import LaptopWebsite.Nhom14.Service.ProductService;
+import LaptopWebsite.Nhom14.Service.UserService;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
     @Autowired
     ProductService productService;
+
+    @Autowired
+    UserService userService;
 
     @GetMapping
     private String showAllProducts(Model model){
@@ -57,4 +62,14 @@ public class AdminController {
         productService.addProduct(product);
         return "redirect:/admin";
     }
+
+    //Quản lý tài khoản
+
+    @GetMapping("/accountmanage")
+    private String showAllAccounts(Model model){
+        List<User> users = userService.GetAll();
+        model.addAttribute("users",users);
+        return "listAccount";
+    }
+
 }
