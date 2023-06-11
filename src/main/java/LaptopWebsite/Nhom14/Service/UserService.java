@@ -1,5 +1,7 @@
 package LaptopWebsite.Nhom14.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import LaptopWebsite.Nhom14.Model.User;
 import org.springframework.stereotype.Service;
@@ -15,4 +17,6 @@ public class UserService {
     {
         userRepository.save(user);
     }
+
+    public List<User> GetAll(){return userRepository.findAll();}
 }
