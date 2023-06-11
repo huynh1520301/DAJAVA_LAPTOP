@@ -22,12 +22,14 @@
                             <th>Password</th>
                             <th>Số điện thoại</th>
                             <th>Username</th>
+                            <th>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="user : ${users}">
                             <td th:text="${user.id}"></td>
                             <td th:text="${user.email}"></td>
+                            <td th:text="${user.name}"></td>
                             <td th:text="${user.password}"></td>
                             <td th:text="${user.phone}"></td>
                             <td th:text="${user.username}"></td>
@@ -35,7 +37,7 @@
                                 <form>
                                     <button type="submit">Sửa</button>
                                 </form>
-                                <form onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
+                                <form th:action="@{'/admin/accountmanage/deleteUser/' + ${user.id}}" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
                                     <button type="submit">Xóa</button>
                                 </form>                                                                                                                                                                 
                             </td>

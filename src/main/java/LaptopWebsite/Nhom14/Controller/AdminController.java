@@ -72,4 +72,9 @@ public class AdminController {
         return "listAccount";
     }
 
+    @PostMapping("/accountmanage/deleteUser/{id}")
+    public String deleteUser(@PathVariable("id") Long id) {
+        userService.delete(id);
+        return "redirect:/admin/accountmanage";
+    }
 }
